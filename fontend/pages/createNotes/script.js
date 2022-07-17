@@ -1,5 +1,5 @@
 const body = document.querySelector("body");
-const apiUrl = "https://note-manager-dhananjay.herokuapp.com";
+const apiUrl = "https://note-manager-harsh.herokuapp.com/";
 const token = localStorage.getItem("jwt");
 window.addEventListener("load", () => {
   body.classList.add("visible");
