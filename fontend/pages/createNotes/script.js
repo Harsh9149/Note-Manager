@@ -1,10 +1,6 @@
 const body = document.querySelector("body");
-const apiUrl = "https://note-manager-harsh.herokuapp.com";
+const apiUrl = "http://localhost:5000";
 const token = localStorage.getItem("jwt");
-
-const urlParams = new URLSearchParams(window.location.search);
-const noteId = urlParams.get("noteId");
-
 window.addEventListener("load", () => {
   body.classList.add("visible");
 });
@@ -14,10 +10,9 @@ const createNoteBtn = document.querySelector(".create-note-button");
 createNoteBtn.addEventListener("click", () => {
   const heading = document.querySelector(".create-note-heading").value;
   const content = document.querySelector(".create-note-input").value;
-
   if (token) {
-    fetch(`${apiUrl}/notes/updateNote/${noteId}`, {
-      method: "PUT",
+    fetch(`${apiUrl}/notes/addNote`, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         authorization: token,
